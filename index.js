@@ -13,7 +13,7 @@ const qb = require('aqb');
  * @param {string} [params.sort] - Comma delimited fields to sort by.
  *                                 Use ` desc` after field name for descending.
  * @param {Number} [params.page=1] - Page to display.
- * @param {Number} [params.limit=30] - Number of records per page.
+ * @param {Number} [params.per_page=30] - Number of records per page.
  * @returns {aqb} Appended aqb object.
  *
  * @example
@@ -23,7 +23,7 @@ const qb = require('aqb');
  * let query = qb.for(doc).in(collection);
  * let params = {
  *   sort: 'date, name desc',
- *   limit: 100,
+ *   per_page: 100,
  *   page: 5
  * }
  * query = paginate(query, doc, params)
@@ -37,7 +37,7 @@ const qb = require('aqb');
  *   res.send(db._query(query.return(doc).toAQL()));
  * })
 **/
-function paginate(query, doc, { sort, page=1, limit=30 }) {
+function paginate(query, doc, { sort, page=1, per_page=30 }) {
   if (sort) {
     let fields = sort.split(',');
     fields.forEach(f => {
@@ -46,9 +46,9 @@ function paginate(query, doc, { sort, page=1, limit=30 }) {
     });
   }
 
-  if (limit || page) {
-    let skip = (page - 1) * limit;
-    query = query.limit(skip, limit);
+  if (per_page || page) {
+    let skip = (page - 1) * per_page;
+    query = query.limit(skip, per_page);
   }
 
   return query;
