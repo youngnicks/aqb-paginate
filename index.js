@@ -5,8 +5,7 @@ const qb = require('aqb');
 /**
  * Arangodb Query Builder Pagination.
  *
- * Provides an easy means for adding filtering, sorting, and pagination to
- * aqb queries.
+ * Provides an easy means for adding sorting and pagination to aqb queries.
  *
  * @param {aqb} query - Query to append to.
  * @param {string|collection} doc - AQL variable to append sort varialbes to.
