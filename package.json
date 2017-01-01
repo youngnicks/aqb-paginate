@@ -1,0 +1,19 @@
+{
+  "name": "aqb-paginate",
+  "version": "1.0.0",
+  "description": "Easy pagination for aqb",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "arangodb",
+    "aqb",
+    "pagination"
+  ],
+  "author": "Nick Young",
+  "license": "ISC",
+  "dependencies": {
+    "aqb": "^2.1.0"
+  }
+}
